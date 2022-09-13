@@ -1,2 +1,2 @@
-from .mediosPSerializer import AccountSerializer
+from .mediosPSerializer import MediosPSerializer
 from .userSerializer import UserSerializer

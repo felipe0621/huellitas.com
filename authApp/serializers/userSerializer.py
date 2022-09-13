@@ -1,9 +1,9 @@
 from rest_framework import serializers
 from authApp.models import MediosP, User, mediosP
-from .mediosPSerializer import AccountSerializer
+from .mediosPSerializer import MediosPSerializer
 
 class UserSerializer(serializers.ModelSerializer):
-    account = AccountSerializer()
+    mediosP = MediosPSerializer()
     
     class Meta:
         model = User
@@ -17,7 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
     
     def to_representation(self, obj):
       user = User.objects.get(id=obj.id)
-      account = MediosP.objects.get(user=obj.id)
+      mediosP = MediosP.objects.get(user=obj.id)
       return{
           'id': user.id,
           'username': user.username,
@@ -26,7 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
           'address': user.address,
           'phone': user.phone,    
           'email': user.email,
-          'account': {
+          'mediosP': {
               'id': mediosP.id,
               'valorApagar': mediosP.valorApagar,
               'efectivo': mediosP.efectivo,
