@@ -11,3 +11,4 @@ class MediosP(models.Model):
     pse = models.BooleanField(default=False)
     isActive = models.BooleanField(default=True)
     
+    ###
